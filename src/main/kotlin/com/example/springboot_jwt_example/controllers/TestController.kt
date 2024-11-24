@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class TestController {
     @GetMapping("/test")
-    public fun hello() = "{'auth':'ok'}"
+    fun hello(): Map<String, String> = mapOf("status" to "ok")
 }
