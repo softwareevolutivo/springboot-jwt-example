@@ -1,7 +1,6 @@
-package com.example.springboot_jwt_example.controllers
+package com.example.springbootJWTExample.controllers
 
-import com.example.springboot_jwt_example.util.JwtUtil
-import org.springframework.beans.factory.annotation.Autowired
+import com.example.springbootJWTExample.util.JwtUtil
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody

@@ -1,7 +1,7 @@
-package com.example.springboot_jwt_example
+package com.example.springbootJWTExample.filters
 
-import com.example.springboot_jwt_example.services.FileUserDetailsService
-import com.example.springboot_jwt_example.util.JwtUtil
+import com.example.springbootJWTExample.services.FileUserDetailsServiceKT
+import com.example.springbootJWTExample.util.JwtUtil
 import jakarta.servlet.FilterChain
 import jakarta.servlet.ServletException
 import jakarta.servlet.http.HttpServletRequest
@@ -9,21 +9,15 @@ import jakarta.servlet.http.HttpServletResponse
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.context.SecurityContextHolder
-import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource
 import org.springframework.web.filter.OncePerRequestFilter
 import java.io.IOException
 
-
-class JwtRequestFilter : OncePerRequestFilter() {
-    private lateinit var jwtUtil: JwtUtil
+class JwtRequestFilterKT : OncePerRequestFilter() {
+    private var jwtUtil: JwtUtil = JwtUtil()
 
     @Autowired
-    private val userDetailsService: FileUserDetailsService? = null
-
-    init {
-        jwtUtil = JwtUtil()
-    }
+    private val userDetailsService: FileUserDetailsServiceKT? = null
 
     @Throws(ServletException::class, IOException::class)
     override fun doFilterInternal(

@@ -1,12 +1,9 @@
-package com.example.springboot_jwt_example.util;
+package com.example.springbootJWTExample.util;
 
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws
 import io.jsonwebtoken.security.Keys
-import org.springframework.stereotype.Component;
-import java.security.Key
 import java.util.Date;
 import javax.crypto.SecretKey
 

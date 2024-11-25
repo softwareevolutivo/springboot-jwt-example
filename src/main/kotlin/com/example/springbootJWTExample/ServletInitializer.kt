@@ -1,4 +1,4 @@
-package com.example.springboot_jwt_example
+package com.example.springbootJWTExample
 
 import org.springframework.boot.builder.SpringApplicationBuilder
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer

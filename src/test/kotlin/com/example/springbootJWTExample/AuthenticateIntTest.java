@@ -1,8 +1,7 @@
-package com.example.springboot_jwt_example;
+package com.example.springbootJWTExample;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,5 +79,25 @@ public class AuthenticateIntTest {
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(jsonPath("$.status").value("ok"));
+    }
+
+    @Test
+    public void testAuthenticateFail() throws Exception {
+        // JSON de login
+        String loginJson = """
+                {
+                    "username": "usuario99",
+                    "password": "contraseña"
+                }
+                """;
+
+        String token = "cualquierotoken";
+        System.out.println(token);
+
+        // Segundo endpoint - Usar el token en el header Authorization
+        mockMvc.perform(MockMvcRequestBuilders.get("/test")
+                        .header("Authorization", "Bearer " + token)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isForbidden());
     }
 }
